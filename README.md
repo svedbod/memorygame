@@ -16,9 +16,7 @@ Colour Memory Game is a simple memory game where players flip over two cards at 
 
 To build the application, run the following command:
 
-\`\`\`sh
-gradle build
-\`\`\`
+    gradle build
 
 ### Run the Application
 
@@ -26,25 +24,19 @@ gradle build
 
 To run the game with a graphical user interface, use the following command:
 
-\`\`\`sh
-gradle run
-\`\`\`
+    gradle run
 
 #### Text-Based User Interface (TextUI)
 
 To run the game with a text-based user interface, use the following command:
 
-\`\`\`sh
-gradle run -PmainClass=se.mindlab.TextGameUI
-\`\`\`
+    gradle run -PmainClass=se.mindlab.TextGameUI
 
 ### Create an Executable JAR
 
 To create an executable JAR file that includes all dependencies, use the following command:
 
-\`\`\`sh
-./gradlew fatJar
-\`\`\`
+    ./gradlew fatJar
 
 The JAR file will be created in the `build/libs` directory with the name `memorygame-all.jar`.
 
@@ -52,9 +44,7 @@ The JAR file will be created in the `build/libs` directory with the name `memory
 
 To run the game from the JAR file, use the following command:
 
-\`\`\`sh
-java -jar build/libs/memorygame-all.jar
-\`\`\`
+    java -jar build/libs/memorygame-all.jar
 
 ## Game Instructions
 
