@@ -193,20 +193,6 @@ public class GameUI implements GameUpdateListener {
         }
     }
 
-//    private void updateCardInUI(JLabel cardView, Card card) {
-//        if (card.isFaceUp()) {
-//            cardView.setIcon(null); // Visual representation for non-colorblind mode
-//            cardView.setBackground(getColorFromString(card.getColor()));
-//            if(colorBlindPreferenceOn) cardView.setText(card.getColor()); // Accessibility text for colorblind users
-//        } else {
-//            cardView.setIcon(cardBackIcon);
-//            cardView.setBackground(defaultBackgroundColor); // make sure we hide colours if face down
-//            cardView.setText(""); // Clear text when card is not visible
-//        }
-//        cardView.setEnabled(true);
-//        cardView.setBorder(BorderFactory.createLineBorder(card.isSelected() ? Color.BLACK : Color.GRAY, card.isSelected() ? 3 : 1));
-//    }
-
     private void updateCardInUI(JLabel cardView, Card card) {
         if (card.isFaceUp()) {
             cardView.setIcon(null); // Visual representation for non-colorblind mode
