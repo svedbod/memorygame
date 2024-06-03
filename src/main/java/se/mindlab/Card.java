@@ -1,5 +1,10 @@
 package se.mindlab;
 
+/**
+ * Represents a single game card with a color and a status indicating whether the card is
+ * face up or face down. The Card class and its attributes provide a simple and clear
+ * representation of each game card, making the code easy to read and maintain.
+ */
 public class Card {
     private final String color;
     private boolean isFaceUp;

@@ -1,5 +1,11 @@
 package se.mindlab;
 
+/**
+ * Responsible for managing the game board, including the initialization of cards and their
+ * placement on the board. GameBoard contains methods for initiating and shuffling the cards
+ * as well as retrieving individual cards. This class separates the game board's logic from
+ * the game's rules, enhancing modularity and allowing for easier testing and maintenance.
+ */
 public class GameBoard {
     private final Card[][] cards = new Card[4][4];
     private boolean allowClicks = true; // Variable to att check if click is allowed

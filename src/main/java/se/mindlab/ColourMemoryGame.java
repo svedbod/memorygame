@@ -1,6 +1,12 @@
 package se.mindlab;
 import javax.swing.Timer;
 
+/**
+ * Handles the game's rules and logic. This class is responsible for managing the player's moves,
+ * keeping track of the score, and determining if the game is over. ColourMemoryGame uses a
+ * GameUpdateListener to update the user interface after each move, creating a loose coupling
+ * between the game logic and the user interface.
+ */
 public class ColourMemoryGame {
     private final GameBoard board;
     private int score;

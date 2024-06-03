@@ -9,6 +9,11 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
+/**
+ * A graphical user interface based on Swing. This class handles the visual representation of
+ * the game board and enables user interaction via mouse clicks. GameUI demonstrates how the
+ * game classes can be integrated with a GUI framework.
+ */
 public class GameUI implements GameUpdateListener {
 
     private class CardMouseListener extends MouseAdapter {

@@ -2,6 +2,12 @@ package se.mindlab;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * A text-based user interface that allows users to play the game via the command line.
+ * This interface is ideal for testing and simple usage without graphical dependencies.
+ * This class uses a list of commands to simulate user input during tests, enabling
+ * automated unit testing.
+ */
 public class TextGameUI implements GameUpdateListener {
     private final ColourMemoryGame game;
     private final Scanner scanner;
