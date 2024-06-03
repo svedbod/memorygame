@@ -9,9 +9,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
-/**
- * TODO: refactor interface for TextUI and UI
- */
 public class GameUI implements GameUpdateListener {
 
     private class CardMouseListener extends MouseAdapter {
@@ -40,15 +37,13 @@ public class GameUI implements GameUpdateListener {
     private JLabel logoLabel;
     private ImageIcon cardBackIcon;
     private ImageIcon logoIcon;
+    private ImageIcon overlayIcon;
     private Boolean gameOverHandled = false;
 
     // enable colorBlindPreference to support colour blind
     private Boolean colorBlindPreferenceOn = false;
 
     private Color defaultBackgroundColor;
-
-    private JLabel[][] cardViews;
-    private ImageIcon overlayIcon;
 
     public GameUI() {
         game = new ColourMemoryGame(this);
@@ -61,7 +56,6 @@ public class GameUI implements GameUpdateListener {
         overlayIcon = loadImageAsIcon("overlay_icon.png");
     }
     private void initializeComponents() {
-        cardViews = new JLabel[4][4];
         scoreLabel = new JLabel("Poäng just nu: 0", JLabel.CENTER);
         logoLabel = new JLabel("", JLabel.CENTER);
         boardPanel = new JPanel(new GridLayout(4, 4));
@@ -124,10 +118,6 @@ public class GameUI implements GameUpdateListener {
         return label;
     }
 
-    /**
-     * Because the entire board is refreshed, including all its components,
-     * there is no accumulation of multiple listeners on the same component.
-     */
     private void prepareBoard() {
         boardPanel.removeAll();  // Clear any existing components including listeners from the board panel
         int componentCounter = 0;  // Initialize a counter to track the number of components processed
@@ -144,7 +134,6 @@ public class GameUI implements GameUpdateListener {
                     boardPanel.add(cardView);
                     addCardListener(cardView, card, row, col);
                 }
-                cardViews[row][col] = cardView;
                 updateCardInUI(cardView, card);  // Update the appearance of the card based on its state
                 componentCounter++;  // Increment the counter after processing each component
             }
