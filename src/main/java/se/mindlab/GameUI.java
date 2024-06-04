@@ -134,7 +134,7 @@ public class GameUI implements GameUpdateListener {
                     // If a component already exists at this position, reuse it
                     cardView = (JLabel) boardPanel.getComponent(componentCounter);
                 } else {
-                    // If no component exists, create a new one and add it to the board
+                    // If no component exists at row, col, create a new one and add it to the board
                     cardView = createCardLabel(cardBackIcon);
                     boardPanel.add(cardView);
                     addCardListener(cardView, card, row, col);
