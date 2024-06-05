@@ -36,24 +36,13 @@ public class TextGameUI implements GameUpdateListener {
             printBoard();
             System.out.println("Enter your move (row column, for example: 0 0):");
 
-            int row, col;
-
-            if (commands != null && commandIndex < commands.size()) {
-                String input = commands.get(commandIndex++);
-                System.out.println(input); // For test visibility
-                Scanner inputScanner = new Scanner(input);
-                row = inputScanner.nextInt();
-                col = inputScanner.nextInt();
-            } else {
-                if (scanner.hasNextInt()) {
-                    row = scanner.nextInt();
-                    col = scanner.nextInt();
-                } else {
-                    break; // Exit condition for interactive mode
-                }
+            int[] move = getValidMove();
+            if (move == null) {
+                System.out.println("Exiting the game due to invalid input.");
+                break;
             }
 
-            game.playTurn(row, col);
+            game.playTurn(move[0], move[1]);
         }
 
         System.out.println("Game Over! Your score: " + game.getScore());
@@ -66,6 +55,47 @@ public class TextGameUI implements GameUpdateListener {
             }
         }
     }
+
+    private int[] getValidMove() {
+        int row = -1, col = -1;
+        boolean validInput = false;
+
+        while (!validInput) {
+            String input = null;
+            if (commands != null && commandIndex < commands.size()) {
+                input = commands.get(commandIndex++);
+                System.out.println(input); // For test visibility
+            } else if (scanner.hasNextLine()) {
+                input = scanner.nextLine();
+            }
+
+            if (input != null) {
+                Scanner inputScanner = new Scanner(input);
+                try {
+                    row = inputScanner.nextInt();
+                    col = inputScanner.nextInt();
+                    if (row >= 0 && row <= 3 && col >= 0 && col <= 3) {
+                        validInput = true;
+                    } else {
+                        System.out.println("Invalid input. Please enter integers between 0 and 3.");
+                        if (commands != null) {
+                            return null;
+                        }
+                    }
+                } catch (Exception e) {
+                    System.out.println("Invalid input. Please enter two integers.");
+                    if (commands != null) {
+                        return null;
+                    }
+                }
+            } else {
+                return null; // No more input available
+            }
+        }
+
+        return new int[]{row, col};
+    }
+
 
     @Override
     public void updateGameUI() {
